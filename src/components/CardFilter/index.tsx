@@ -5,9 +5,9 @@ export type Props = {
 }
 
 const CardFilter = (props: Props) => (
-  <S.Card>
+  <S.Card $ativo={props.ativo}>
     <S.Counter> 3</S.Counter>
-    <S.Label>to do</S.Label>
+    <S.Label>todo</S.Label>
   </S.Card>
 )
 
