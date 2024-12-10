@@ -1,10 +1,15 @@
 import styled from 'styled-components'
 
-export const Card = styled.div<{ $ativo?: boolean }>`
+import { Props } from './index'
+
+// using Omit to remove label and counter from Props
+type PropsSemLabelAndCounter = Omit<Props, 'label' | 'counter'>
+
+export const Card = styled.div<PropsSemLabelAndCounter>`
   padding: 8px
-  border: 1px solid ${(props) => (props.$ativo ? '#1E90FF' : '#a1a1a1')};
-  background-color: ${(props) => (props.$ativo ? '#fff' : '#fcfcfc')};
-  color: ${(props) => (props.$ativo ? '#1E90FF' : '#5e5e5e')};
+  border: 1px solid ${(props) => (props.ativo ? '#1E90FF' : '#a1a1a1')};
+  background-color: ${(props) => (props.ativo ? '#fff' : '#fcfcfc')};
+  color: ${(props) => (props.ativo ? '#1E90FF' : '#5e5e5e')};
   border-radius: 8px
 `
 
