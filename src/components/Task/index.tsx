@@ -1,16 +1,37 @@
+import { useState } from 'react'
 import * as S from './styles'
 
-const Task = () => (
-  <S.Card>
-    <S.Title>Task Name</S.Title>
-    <S.Tag>important</S.Tag>
-    <S.Tag>pendent</S.Tag>
-    <S.Description />
-    <S.ActionBar>
-      <S.Button>edit</S.Button>
-      <S.Button>remove</S.Button>
-    </S.ActionBar>
-  </S.Card>
-)
+type Props = {
+  title: string
+  priority: string
+  status: string
+  description: string
+}
+
+const Task = ({ description, priority, status, title }: Props) => {
+  const [isEditing, setIsEditing] = useState(false)
+  return (
+    <S.Card>
+      <S.Title>{title}</S.Title>
+      <S.Tag>{priority}</S.Tag>
+      <S.Tag>{status}</S.Tag>
+      <S.Description value={description} />
+      <S.ActionBar>
+        {/* Ternary operator render buttons based on isEditing state */}
+        {isEditing ? (
+          <>
+            <S.Button>Save</S.Button>
+            <S.Button onClick={() => setIsEditing(false)}>Cancel</S.Button>
+          </>
+        ) : (
+          <>
+            <S.Button onClick={() => setIsEditing(true)}>Edit</S.Button>
+            <S.Button>Remove</S.Button>
+          </>
+        )}
+      </S.ActionBar>
+    </S.Card>
+  )
+}
 
 export default Task
