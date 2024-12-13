@@ -20,13 +20,15 @@ const Task = ({ description, priority, status, title }: Props) => {
         {/* Ternary operator render buttons based on isEditing state */}
         {isEditing ? (
           <>
-            <S.Button>Save</S.Button>
-            <S.Button onClick={() => setIsEditing(false)}>Cancel</S.Button>
+            <S.SaveButton>Save</S.SaveButton>
+            <S.CancelButton onClick={() => setIsEditing(false)}>
+              Cancel
+            </S.CancelButton>
           </>
         ) : (
           <>
             <S.Button onClick={() => setIsEditing(true)}>Edit</S.Button>
-            <S.Button>Remove</S.Button>
+            <S.CancelButton>Remove</S.CancelButton>
           </>
         )}
       </S.ActionBar>
