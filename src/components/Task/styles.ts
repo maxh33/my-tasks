@@ -1,6 +1,23 @@
 import styled from 'styled-components'
 import variables from '../../styles/variables'
 
+type TagProps = {
+  priority?: string
+  status?: string
+}
+
+function resturnBackgroundColor(props: TagProps): string {
+  if ('status' in props) {
+    if (props.status === 'To Do') return variables.yellow
+    if (props.status === 'Done') return variables.green
+  } else if ('priority' in props) {
+    if (props.priority === 'High') return variables.yellow2
+    if (props.priority === 'Urgent') return variables.red
+  }
+
+  return variables.regular
+}
+
 export const Card = styled.div`
   background-color: #fcfcfc;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -14,12 +31,12 @@ export const Title = styled.h3`
   margin-bottom: 16px;
 `
 
-export const Tag = styled.span`
+export const Tag = styled.span<TagProps>`
   padding: 4px 8px;
   color: #fff;
   font-weight: bold;
   font-size: 10px;
-  background-color: #e1a32a;
+  background-color: ${(props) => resturnBackgroundColor(props)};
   border-radius: 8px;
   margin-right: 16px;
   display: inline-block;

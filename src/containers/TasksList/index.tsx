@@ -11,19 +11,19 @@ const tasks = [
   {
     title: 'Estudy typescript',
     description: 'Estudy typescript for 1 hour',
-    priority: 'High',
-    status: 'To Do'
+    priority: 'Urgent',
+    status: 'In Progress'
   },
   {
     title: 'Estudy javascript',
     description: 'Estudy javascript for 1 hour',
     priority: 'High',
-    status: 'To Do'
+    status: 'Done'
   },
   {
     title: 'Estudy react',
     description: 'Estudy react for 1 hour',
-    priority: 'High',
+    priority: 'Normal',
     status: 'To Do'
   },
   {
@@ -36,7 +36,7 @@ const tasks = [
     title: 'Estudy node',
     description: 'Estudy node for 1 hour',
     priority: 'High',
-    status: 'To Do'
+    status: 'done'
   }
 ]
 

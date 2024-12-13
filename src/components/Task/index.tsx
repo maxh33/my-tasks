@@ -13,8 +13,8 @@ const Task = ({ description, priority, status, title }: Props) => {
   return (
     <S.Card>
       <S.Title>{title}</S.Title>
-      <S.Tag>{priority}</S.Tag>
-      <S.Tag>{status}</S.Tag>
+      <S.Tag priority={priority}>{priority}</S.Tag>
+      <S.Tag status={status}>{status}</S.Tag>
       <S.Description value={description} />
       <S.ActionBar>
         {/* Ternary operator render buttons based on isEditing state */}
