@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import Task from '../../components/Task'
+import Task from '../../models/Task'
 import * as enums from '../../utils/enums/Task'
 
 const tasksSlice = createSlice({
@@ -15,20 +15,20 @@ const tasksSlice = createSlice({
     new Task(
       'Estudy Python',
       enums.Priority.NORMAL,
-      enums.Status.IN_PROGRESS,
+      enums.Status.DONE,
       'Practice Python lists',
       2
     ),
     new Task(
       'Estudy React',
-      enums.Priority.NORMAL,
+      enums.Priority.URGENT,
       enums.Status.DONE,
       'Practice React components',
       3
     ),
     new Task(
       'Estudy TypeScript',
-      enums.Priority.IMPORTANT,
+      enums.Priority.URGENT,
       enums.Status.TO_DO,
       'Practice TypeScript interfaces',
       4
@@ -36,7 +36,7 @@ const tasksSlice = createSlice({
     new Task(
       'Estudy JavaScript',
       enums.Priority.NORMAL,
-      enums.Status.IN_PROGRESS,
+      enums.Status.DONE,
       'Practice JavaScript functions',
       5
     )
