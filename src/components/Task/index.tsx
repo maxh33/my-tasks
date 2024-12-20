@@ -3,8 +3,6 @@ import { useDispatch } from 'react-redux'
 
 import * as S from './styles'
 
-import * as enums from '../../utils/enums/Task'
-
 import { remover, edit } from '../../store/reducers/tasks'
 import TaskClass from '../../models/Task'
 
