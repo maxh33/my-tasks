@@ -6,12 +6,18 @@ import { RootReducer } from '../../store'
 
 const TasksList = () => {
   const { items } = useSelector((state: RootReducer) => state.tasks)
+  const { term } = useSelector((state: RootReducer) => state.filter)
 
+  const tasksFilter = () => {
+    return items.filter(
+      (item) => item.title.toLowerCase().search(term.toLowerCase()) >= 0
+    )
+  }
   return (
     <Container>
-      <p>2 tasks marked as: &quot;category&quot; e &quot;terms&quot;</p>
+      <p>2 tasks marked as: &quot;category&quot; e &quot;{term}&quot;</p>
       <ul>
-        {items.map((t) => (
+        {tasksFilter().map((t) => (
           <li key={t.title}>
             <Task
               id={t.id}
