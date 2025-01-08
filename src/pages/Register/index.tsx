@@ -1,7 +1,11 @@
+import SideBar from '../../containers/SideBar'
+import Formulary from '../../containers/Formulary'
+
 const Register = () => (
-  <div>
-    <h1>Register</h1>
-  </div>
+  <>
+    <SideBar />
+    <Formulary />
+  </>
 )
 
 export default Register

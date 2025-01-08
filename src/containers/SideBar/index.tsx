@@ -2,24 +2,25 @@ import { useDispatch, useSelector } from 'react-redux'
 import CardFilter from '../../components/CardFilter'
 import { RootReducer } from '../../store'
 import { changeTerm } from '../../store/reducers/filter'
-import * as enums from '../../utils/enums/Task'
 
-import * as S from './styles'
+import * as enums from '../../utils/enums/Task'
+import { Field } from '../../styles'
+import { Aside, Filters } from './styles'
 
 const SideBar = () => {
   const dispatch = useDispatch()
   const { term } = useSelector((state: RootReducer) => state.filter)
 
   return (
-    <S.Aside>
+    <Aside>
       <div>
-        <S.Field
+        <Field
           type="text"
           placeholder="Search"
           value={term}
           onChange={(event) => dispatch(changeTerm(event.target.value))}
         />
-        <S.Filters>
+        <Filters>
           <CardFilter
             value={enums.Status.TO_DO}
             criteria="status"
@@ -46,9 +47,9 @@ const SideBar = () => {
             label="regular"
           />
           <CardFilter criteria="priority" label="all tasks" />
-        </S.Filters>
+        </Filters>
       </div>
-    </S.Aside>
+    </Aside>
   )
 }
 
