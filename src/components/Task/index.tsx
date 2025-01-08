@@ -5,6 +5,7 @@ import * as S from './styles'
 
 import { remover, edit } from '../../store/reducers/tasks'
 import TaskClass from '../../models/Task'
+import { SaveButton } from '../../styles'
 
 type Props = TaskClass
 
@@ -48,7 +49,7 @@ const Task = ({
         {/* Ternary operator render buttons based on isEditing state */}
         {isEditing ? (
           <>
-            <S.SaveButton
+            <SaveButton
               onClick={() => {
                 dispatch(
                   edit({
@@ -63,7 +64,7 @@ const Task = ({
               }}
             >
               Save
-            </S.SaveButton>
+            </SaveButton>
             <S.CancelButton onClick={cancelEdit}>Cancel</S.CancelButton>
           </>
         ) : (

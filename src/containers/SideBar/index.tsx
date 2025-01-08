@@ -3,31 +3,53 @@ import CardFilter from '../../components/CardFilter'
 import { RootReducer } from '../../store'
 import { changeTerm } from '../../store/reducers/filter'
 
-import * as S from './styles'
+import * as enums from '../../utils/enums/Task'
+import { Field } from '../../styles'
+import { Aside, Filters } from './styles'
 
 const SideBar = () => {
   const dispatch = useDispatch()
   const { term } = useSelector((state: RootReducer) => state.filter)
 
   return (
-    <S.Aside>
+    <Aside>
       <div>
-        <S.Field
+        <Field
           type="text"
           placeholder="Search"
           value={term}
           onChange={(event) => dispatch(changeTerm(event.target.value))}
         />
-        <S.Filters>
-          <CardFilter label="pendent" counter={1} />
-          <CardFilter label="done" counter={2} />
-          <CardFilter label="urgent" counter={3} />
-          <CardFilter label="important" counter={4} />
-          <CardFilter label="regular" counter={5} />
-          <CardFilter label="all tasks" counter={10} ativo />
-        </S.Filters>
+        <Filters>
+          <CardFilter
+            value={enums.Status.TO_DO}
+            criteria="status"
+            label="pendent"
+          />
+          <CardFilter
+            value={enums.Status.DONE}
+            criteria="status"
+            label="done"
+          />
+          <CardFilter
+            value={enums.Priority.URGENT}
+            criteria="priority"
+            label="urgent"
+          />
+          <CardFilter
+            value={enums.Priority.IMPORTANT}
+            criteria="priority"
+            label="important"
+          />
+          <CardFilter
+            value={enums.Priority.NORMAL}
+            criteria="priority"
+            label="regular"
+          />
+          <CardFilter criteria="priority" label="all tasks" />
+        </Filters>
       </div>
-    </S.Aside>
+    </Aside>
   )
 }
 

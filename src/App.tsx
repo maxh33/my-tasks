@@ -1,16 +1,29 @@
 import { Provider } from 'react-redux'
-import SideBar from './containers/SideBar'
-import TasksList from './containers/TasksList'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
 import GlobalStyle, { Container } from './styles'
+
 import store from './store'
+import Home from './pages/Home'
+import Register from './pages/Register'
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />
+  },
+  {
+    path: '/new-task',
+    element: <Register />
+  }
+])
 
 function App() {
   return (
     <Provider store={store}>
       <GlobalStyle />
       <Container>
-        <SideBar />
-        <TasksList />
+        <RouterProvider router={router} />
       </Container>
     </Provider>
   )
