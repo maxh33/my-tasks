@@ -47,7 +47,7 @@ const tasksSlice = createSlice({
         state.items[indexTask] = action.payload
       }
     },
-    insert: (state, action: PayloadAction<Task>) => {
+    insert: (state, action: PayloadAction<Omit<Task, 'id'>>) => {
       const taskAlreadyExists = state.items.find(
         (task) =>
           task.title.toLowerCase() === action.payload.title.toLowerCase()
@@ -56,7 +56,12 @@ const tasksSlice = createSlice({
       if (taskAlreadyExists) {
         alert('Task already exists')
       } else {
-        state.items.push(action.payload)
+        const lastTask = state.items[state.items.length - 1]
+        const newTask = {
+          ...action.payload,
+          id: lastTask ? lastTask.id + 1 : 1
+        }
+        state.items.push(newTask)
       }
     },
     changeStatus: (

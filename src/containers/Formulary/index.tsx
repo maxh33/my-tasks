@@ -7,7 +7,6 @@ import { Field } from '../../styles'
 import { Form, Options, Option } from './styles'
 
 import * as enums from '../../utils/enums/Task'
-import Task from '../../models/Task'
 import { insert } from '../../store/reducers/tasks'
 
 const Formulary = () => {
@@ -19,14 +18,15 @@ const Formulary = () => {
 
   const taskRegister = (event: FormEvent) => {
     event.preventDefault()
-    const taskToRegister = new Task(
-      title,
-      priority,
-      enums.Status.TO_DO,
-      description,
-      9
+
+    dispatch(
+      insert({
+        title,
+        priority,
+        description,
+        status: enums.Status.TO_DO
+      })
     )
-    dispatch(insert(taskToRegister))
     navigate('/')
   }
 

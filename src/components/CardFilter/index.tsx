@@ -40,10 +40,9 @@ const CardFilter = ({ label, criteria, value }: Props) => {
     )
   }
   const counter = taskCounter()
-  const ativo = isFilterActive()
 
   return (
-    <S.Card ativo={isFilterActive()} onClick={filterTasks}>
+    <S.Card active={isFilterActive()} onClick={filterTasks}>
       <S.Counter>{counter}</S.Counter>
       <S.Label>{label}</S.Label>
     </S.Card>
