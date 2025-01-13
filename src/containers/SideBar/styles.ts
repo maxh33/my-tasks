@@ -9,6 +9,6 @@ export const Aside = styled.aside`
 export const Filters = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px;
+  grid-gap: 8px;
   margin-top: 16px;
 `

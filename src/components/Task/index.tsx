@@ -56,10 +56,10 @@ const Task = ({
           {title}
         </S.Title>
       </label>
-      <S.Tag parameter="priority" priority={priority}>
+      <S.Tag $parameter="priority" $priority={priority}>
         {priority}
       </S.Tag>
-      <S.Tag parameter="status" status={status}>
+      <S.Tag $parameter="status" $status={status}>
         {status}
       </S.Tag>
       <S.Description

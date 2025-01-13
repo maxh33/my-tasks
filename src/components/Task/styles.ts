@@ -5,18 +5,18 @@ import * as enums from '../../utils/enums/Task'
 import { Button } from '../../styles'
 
 type TagProps = {
-  priority?: enums.Priority
-  status?: enums.Status
-  parameter: 'priority' | 'status'
+  $priority?: enums.Priority
+  $status?: enums.Status
+  $parameter: 'priority' | 'status'
 }
 
 function returnBackgroundColor(props: TagProps): string {
-  if (props.parameter === 'priority') {
-    if (props.priority === enums.Priority.URGENT) return variables.red
-    if (props.priority === enums.Priority.IMPORTANT) return variables.yellow2
+  if (props.$parameter === 'priority') {
+    if (props.$priority === enums.Priority.URGENT) return variables.red
+    if (props.$priority === enums.Priority.IMPORTANT) return variables.yellow2
   } else {
-    if (props.status === enums.Status.TO_DO) return variables.yellow
-    if (props.status === enums.Status.DONE) return variables.green
+    if (props.$status === enums.Status.TO_DO) return variables.yellow
+    if (props.$status === enums.Status.DONE) return variables.green
   }
 
   return variables.regular
