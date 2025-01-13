@@ -55,7 +55,7 @@ const SideBar = ({ showFilteredResults }: Props) => {
                 criteria="priority"
                 label="regular"
               />
-              <CardFilter criteria="priority" label="all tasks" />
+              <CardFilter criteria="all" label="all tasks" />
             </Filters>
           </>
         ) : (

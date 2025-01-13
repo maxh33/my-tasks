@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { changeCriteria } from '../../store/reducers/filter'
-import { RootReducer } from '../../store'
+import { changeFilter } from '../../store/reducers/filter'
 import * as S from './styles'
 import * as enums from '../../utils/enums/Task'
+import { RootReducer } from '../../store'
 
 export type Props = {
   label: string
@@ -14,7 +14,7 @@ const CardFilter = ({ label, criteria, value }: Props) => {
   const dispatch = useDispatch()
   const { filter, tasks } = useSelector((state: RootReducer) => state)
 
-  const isFilterActive = () => {
+  const checkIfActive = () => {
     const sameCriteria = filter.criteria === criteria
     const sameValue = filter.value === value
 
@@ -32,18 +32,19 @@ const CardFilter = ({ label, criteria, value }: Props) => {
     return 0
   }
 
-  const filterTasks = () => {
+  const filtered = () => {
     dispatch(
-      changeCriteria({
+      changeFilter({
         criteria,
         value
       })
     )
   }
   const counter = taskCounter()
+  const active = checkIfActive()
 
   return (
-    <S.Card active={isFilterActive()} onClick={filterTasks}>
+    <S.Card active={active} onClick={filtered}>
       <S.Counter>{counter}</S.Counter>
       <S.Label>{label}</S.Label>
     </S.Card>
