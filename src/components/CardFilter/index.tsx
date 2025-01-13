@@ -11,7 +11,7 @@ export type Props = {
 }
 
 const CardFilter = ({ label, criteria, value }: Props) => {
-  const dispach = useDispatch()
+  const dispatch = useDispatch()
   const { filter, tasks } = useSelector((state: RootReducer) => state)
 
   const isFilterActive = () => {
@@ -29,10 +29,11 @@ const CardFilter = ({ label, criteria, value }: Props) => {
     if (criteria === 'status') {
       return tasks.items.filter((item) => item.status === value).length
     }
+    return 0
   }
 
   const filterTasks = () => {
-    dispach(
+    dispatch(
       changeCriteria({
         criteria,
         value

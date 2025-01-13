@@ -10,7 +10,7 @@ type TagProps = {
   parameter: 'priority' | 'status'
 }
 
-function resturnBackgroundColor(props: TagProps): string {
+function returnBackgroundColor(props: TagProps): string {
   if (props.parameter === 'priority') {
     if (props.priority === enums.Priority.URGENT) return variables.red
     if (props.priority === enums.Priority.IMPORTANT) return variables.yellow2
@@ -46,7 +46,7 @@ export const Tag = styled.span<TagProps>`
   color: #fff;
   font-weight: bold;
   font-size: 10px;
-  background-color: ${(props) => resturnBackgroundColor(props)};
+  background-color: ${(props) => returnBackgroundColor(props)};
   border-radius: 8px;
   margin-right: 16px;
   display: inline-block;

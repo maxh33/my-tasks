@@ -13,7 +13,7 @@ const initialState: TasksState = {
       description: 'Python practice exercises',
       priority: enums.Priority.IMPORTANT,
       status: enums.Status.DONE,
-      title: 'Pyton Task'
+      title: 'Python Task'
     },
     {
       id: 2,
