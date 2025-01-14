@@ -28,6 +28,12 @@ The purpose of this project is to learn and implement:
 
 ![Demo GIF](https://github.com/maxh33/my-tasks/blob/main/public/demo.gif)
 
+## Deployment
+
+This project is deployed on Vercel. Please note that the deployed version does not store data persistently. Any tasks you add will not be saved permanently.
+
+ You can view it here: [My Tasks](https://my-tasks.vercel.app/).
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
