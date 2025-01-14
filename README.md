@@ -1,6 +1,7 @@
 # My Tasks
 
 The purpose of this project is to learn and implement:
+
 - Redux Toolkit for state management
 - React Router for navigation
 - `useSelector` for accessing the Redux state

@@ -5,9 +5,9 @@ import CardFilter from '../../components/CardFilter'
 import { RootReducer } from '../../store'
 import { changeTerm } from '../../store/reducers/filter'
 
+import * as S from './styles'
 import * as enums from '../../utils/enums/Task'
 import { Button, Field } from '../../styles'
-import { Aside, Filters } from './styles'
 
 type Props = {
   showFilteredResults: boolean
@@ -19,7 +19,7 @@ const SideBar = ({ showFilteredResults }: Props) => {
   const { term } = useSelector((state: RootReducer) => state.filter)
 
   return (
-    <Aside>
+    <S.Aside>
       <div>
         {showFilteredResults ? (
           <>
@@ -29,7 +29,7 @@ const SideBar = ({ showFilteredResults }: Props) => {
               value={term}
               onChange={(event) => dispatch(changeTerm(event.target.value))}
             />
-            <Filters>
+            <S.Filters>
               <CardFilter
                 value={enums.Status.TO_DO}
                 criteria="status"
@@ -56,13 +56,13 @@ const SideBar = ({ showFilteredResults }: Props) => {
                 label="regular"
               />
               <CardFilter criteria="all" label="all tasks" />
-            </Filters>
+            </S.Filters>
           </>
         ) : (
           <Button onClick={() => navigate('/')}>Back to the tasks list</Button>
         )}
       </div>
-    </Aside>
+    </S.Aside>
   )
 }
 
