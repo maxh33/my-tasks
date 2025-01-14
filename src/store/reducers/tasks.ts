@@ -13,7 +13,7 @@ const initialState: TasksState = {
       description: 'Python practice exercises',
       priority: enums.Priority.IMPORTANT,
       status: enums.Status.DONE,
-      title: 'Pyton Task'
+      title: 'Python Task'
     },
     {
       id: 2,
@@ -46,10 +46,38 @@ const tasksSlice = createSlice({
       if (indexTask >= 0) {
         state.items[indexTask] = action.payload
       }
+    },
+    insert: (state, action: PayloadAction<Omit<Task, 'id'>>) => {
+      const taskAlreadyExists = state.items.find(
+        (task) =>
+          task.title.toLowerCase() === action.payload.title.toLowerCase()
+      )
+
+      if (taskAlreadyExists) {
+        alert('Task already exists')
+      } else {
+        const lastTask = state.items[state.items.length - 1]
+        const newTask = {
+          ...action.payload,
+          id: lastTask ? lastTask.id + 1 : 1
+        }
+        state.items.push(newTask)
+      }
+    },
+    changeStatus: (
+      state,
+      action: PayloadAction<{ id: number; done: boolean }>
+    ) => {
+      const indexTask = state.items.findIndex((t) => t.id === action.payload.id)
+      if (indexTask >= 0) {
+        state.items[indexTask].status = action.payload.done
+          ? enums.Status.DONE
+          : enums.Status.TO_DO
+      }
     }
   }
 })
 
-export const { remover, edit } = tasksSlice.actions
+export const { remover, edit, insert, changeStatus } = tasksSlice.actions
 
 export default tasksSlice.reducer

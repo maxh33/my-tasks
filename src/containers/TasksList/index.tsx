@@ -11,17 +11,17 @@ const TasksList = () => {
   )
 
   const tasksFilter = () => {
-    let filerdTasks = items
+    let filteredTasks = items
     if (term !== undefined) {
-      filerdTasks = filerdTasks.filter(
+      filteredTasks = filteredTasks.filter(
         (item) => item.title.toLowerCase().search(term.toLowerCase()) >= 0
       )
       if (criteria === 'priority') {
-        filerdTasks = filerdTasks.filter((item) => item.priority === value)
+        filteredTasks = filteredTasks.filter((item) => item.priority === value)
       } else if (criteria === 'status') {
-        filerdTasks = filerdTasks.filter((item) => item.status === value)
+        filteredTasks = filteredTasks.filter((item) => item.status === value)
       }
-      return filerdTasks
+      return filteredTasks
     } else {
       return items
     }

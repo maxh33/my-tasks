@@ -3,7 +3,7 @@ import Formulary from '../../containers/Formulary'
 
 const Register = () => (
   <>
-    <SideBar />
+    <SideBar showFilteredResults={false} />
     <Formulary />
   </>
 )
