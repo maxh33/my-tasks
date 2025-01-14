@@ -1,3 +1,32 @@
+# My Tasks
+
+The purpose of this project is to learn and implement:
+- Redux Toolkit for state management
+- React Router for navigation
+- `useSelector` for accessing the Redux state
+- `useDispatch` for dispatching actions
+- Slices for managing the tasks and filter state
+- Props for component communication
+
+## Technologies Used
+
+- React
+- Redux Toolkit
+- React Router
+- TypeScript
+- Styled-components
+
+## Features
+
+- Add, edit, and remove tasks
+- Filter tasks by priority and status
+- Display total tasks and filtered tasks count
+- Responsive design
+
+## Demo
+
+![Demo GIF](https://github.com/maxh33/my-tasks/blob/main/public/demo.gif)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
